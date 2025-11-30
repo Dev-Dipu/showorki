@@ -6,14 +6,23 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
     const panelRef = useRef(null);
     const contentRef = useRef(null);
     const textRef = useRef(null);
+    const centerTextRef = useRef(null);
 
     useEffect(() => {
         if (isActive) {
+            // Active State
             gsap.to(panelRef.current, {
                 flexGrow: 1,
                 duration: 0.8,
                 ease: "power3.inOut",
-                minWidth: "60vw",
+                minWidth: "60vw", // Large active panel
+                onComplete: () => {
+                    panelRef.current?.scrollIntoView({
+                        behavior: "smooth",
+                        inline: "center",
+                        block: "nearest",
+                    });
+                },
             });
 
             gsap.to(contentRef.current, {
@@ -27,12 +36,13 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 opacity: 0,
                 duration: 0.3,
             });
-        } else {
+        } else if (isAnyActive) {
+            // Inactive State (when another panel is active) - No shrinking
             gsap.to(panelRef.current, {
                 flexGrow: 0,
                 duration: 0.8,
                 ease: "power3.inOut",
-                minWidth: isAnyActive ? "60px" : "7.8vw",
+                minWidth: "7.5vw", // Maintain default width
             });
 
             gsap.to(contentRef.current, {
@@ -46,6 +56,38 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 duration: 0.5,
                 delay: 0.4,
             });
+
+            // Ensure center text is visible
+            gsap.to(centerTextRef.current, {
+                opacity: 1,
+                duration: 0.3,
+            });
+        } else {
+            // Default State (no panels active)
+            gsap.to(panelRef.current, {
+                flexGrow: 0,
+                duration: 0.8,
+                ease: "power3.inOut",
+                minWidth: "7.5vw", // Default width
+            });
+
+            gsap.to(contentRef.current, {
+                opacity: 0,
+                duration: 0.3,
+                display: "none",
+            });
+
+            gsap.to(textRef.current, {
+                opacity: 1,
+                duration: 0.5,
+                delay: 0.4,
+            });
+
+            gsap.to(centerTextRef.current, {
+                opacity: 1,
+                duration: 0.3,
+                delay: 0.2,
+            });
         }
     }, [isActive, isAnyActive]);
 
@@ -54,7 +96,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
             ref={panelRef}
             onClick={!isActive ? onClick : undefined}
             style={{ backgroundColor: data.color }}
-            className={`panel relative flex flex-col h-full overflow-hidden cursor-pointer border-r border-black/10 w-fit`}
+            className={`panel relative flex flex-col h-full overflow-hidden cursor-pointer border-r border-black/10 w-fit shrink-0`}
         >
             {/* Collapsed Panel */}
             <div
@@ -71,15 +113,25 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                         alt="thumb"
                         className="w-10 h-10 object-cover rounded-sm"
                     />
-
                 </div>
 
                 {/* Center Large Text */}
-                <div className="flex flex-col items-center justify-center opacity-80 h-1/3 border-y">
-                    <h1 className="font-playfair text-2xl leading-[0.9]">WEB</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">DESIGN</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">SINCE</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">1992</h1>
+                <div
+                    ref={centerTextRef}
+                    className="flex flex-col items-center justify-center opacity-80 h-1/3 border-y"
+                >
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        WEB
+                    </h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        DESIGN
+                    </h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        SINCE
+                    </h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        1992
+                    </h1>
                 </div>
 
                 {/* Footer */}
@@ -90,7 +142,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
 
                     <div className="h-18 w-fit rounded-sm flex flex-col items-center">
                         <img
-                            src={'/ticket.png'}
+                            src={"/ticket.png"}
                             alt="ticket"
                             className="h-full w-full object-contain"
                         />
@@ -137,7 +189,9 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                         </h2>
 
                         <div className="meta">
-                            <span className="text-sm">{data.year} / ARCHIVE</span>
+                            <span className="text-sm">
+                                {data.year} / ARCHIVE
+                            </span>
                             <h3 className="text-2xl font-light mt-2">
                                 {data.subtitle} ({data.title})
                             </h3>
