@@ -12,9 +12,12 @@ const Accordion = () => {
             gsap.from(".panel", {
                 y: 1000,
                 opacity: 0,
-                duration: 1.2,
-                stagger: 0.1,
-                ease: "power3.out",
+                duration: 1.4,
+                stagger: {
+                    from: "end",
+                    amount: 0.2,
+                },
+                ease: "expo.inOut",
                 delay: 0.2,
             });
         }, containerRef);
