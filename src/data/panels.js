@@ -92,16 +92,6 @@ export const panels = [
         tags: ["Web Design", "Archive"],
     },
     {
-        id: 10,
-        title: "GEN'EI NO MONSHO",
-        subtitle: "Phantom Crest",
-        year: "2011",
-        color: "#e6e6fa", // Lavender
-        image: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b0?q=80&w=1000&auto=format&fit=crop",
-        description: "A crest that fades into the digital ether.",
-        tags: ["Web Design", "Archive"],
-    },
-    {
         id: 11,
         title: "YOSUMI",
         subtitle: "Night Clarity",

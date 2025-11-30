@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
-    <div className='h-screen w-full bg-[#191818] flex'>
+    <div className='h-screen w-full overflow-hidden flex bg-[#191818] '>
       <Sidebar />
       <Accordion />
     </div>

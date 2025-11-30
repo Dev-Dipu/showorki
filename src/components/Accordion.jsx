@@ -29,7 +29,7 @@ const Accordion = () => {
     return (
         <div
             ref={containerRef}
-            className="flex h-screen overflow-hidden bg-[#191818]"
+            className="flex h-screen w-full bg-[#191818]"
         >
             {panels.map((panel) => (
                 <Panel
