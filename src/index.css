@@ -5,6 +5,13 @@
   .animate-spin-slow {
     animation: spin 4s linear infinite;
   }
+  
+  .font-eight {
+    font-family: 'eight';
+  }
+  .font-dmsans {
+    font-family: 'dmsans';
+  }
 }
 
 @layer components {
@@ -34,4 +41,13 @@
       39% 35%
     );
   }
+}
+
+@font-face {
+  font-family: 'eight';
+  src: url(/assets/fonts/eight.OTF);
+}
+@font-face {
+  font-family: 'dmsans';
+  src: url(/assets/fonts/DMSans-Regular.ttf);
 }

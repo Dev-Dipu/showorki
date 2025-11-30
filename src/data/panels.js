@@ -1,123 +1,147 @@
+
 export const panels = [
     {
         id: 1,
-        title: "KAGE NO MONOGATARI",
-        subtitle: "Shadow Story",
+        title: "影の物語 (Kage no Monogatari)",
+        subtitle: "Kage no Monogatari",
+        english: "Shadow Story",
         year: "1992",
-        color: "#a8b5c0", // Muted Blue-Grey
-        image: "https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=1000&auto=format&fit=crop",
+        color: "#C7DDEA", // Muted Blue-Grey
+        image: "https://images.unsplash.com/photo-1483366774580-c49d38f1acf1?q=80&w=1000&auto=format&fit=crop", // Snowy mountain/pale blue
         description:
             "Exploring the depths of shadow and light in modern web design.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 2,
-        title: "KIRI NO SHO",
-        subtitle: "Mist Chapter",
+        title: "霧の章 (Kiri no Shō)",
+        subtitle: "Kiri no Shō",
+        english: "Mist Chapter",
         year: "1994",
-        color: "#5c7c98", // Darker Blue
-        image: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=1000&auto=format&fit=crop",
+        color: "#496F96", // Darker Blue
+        image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=1000&auto=format&fit=crop", // Deep blue ocean
         description:
             "A journey through the misty landscapes of early internet aesthetics.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 3,
-        title: "KUROYUME",
-        subtitle: "Black Dream",
+        title: "黒夢 (Kuroyume)",
+        subtitle: "Kuroyume",
+        english: "Black Dream",
         year: "2000",
-        color: "#8c6b5d", // Brownish
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop",
+        color: "#916040", // Brownish
+        image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1000&auto=format&fit=crop", // Coffee beans/dark wood
         description: "Dreaming in monochrome: a study of contrast and void.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 4,
-        title: "TSUKIKAGE",
-        subtitle: "Moon Shadow",
+        title: "月影 (Tsukikage)",
+        subtitle: "Tsukikage",
+        english: "Moon Shadow",
         year: "1999",
-        color: "#c94c4c", // Red
-        image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1000&auto=format&fit=crop",
+        color: "#D34242", // Red
+        image: "https://images.unsplash.com/photo-1515524738708-327f6b0033a7?q=80&w=1000&auto=format&fit=crop", // Red abstract/neon
         description: "The moon's reflection on the digital ocean.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 5,
-        title: "SHINKAGE",
-        subtitle: "Deep Shadow",
+        title: "深影 (Shinkage)",
+        subtitle: "Shinkage",
+        english: "Deep Shadow",
         year: "2005",
-        color: "#d3d3d3", // Light Grey
-        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop",
+        color: "#CED1D4", // Light Grey
+        image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=1000&auto=format&fit=crop", // Minimalist grey/white
         description: "Diving deep into the subconscious of user experience.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 6,
-        title: "SEIJAKU NO TSUBASA",
-        subtitle: "Wings of Silence",
+        title: "静寂の翼 (Seijaku no Tsubasa)",
+        subtitle: "Seijaku no Tsubasa",
+        english: "Wings of Silence",
         year: "1809",
-        color: "#808080", // Grey
-        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+        color: "#5B5959", // Grey
+        image: "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?q=80&w=1000&auto=format&fit=crop", // Dark grey texture
         description: "Silence takes flight in this minimalist exploration.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 7,
-        title: "KIRISHO",
-        subtitle: "Mist Chapter",
+        title: "霧章 (Kirishō)",
+        subtitle: "Kirishō",
+        english: "Mist Chapter",
         year: "2009",
-        color: "#f0f0f0", // White-ish
-        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop",
+        color: "#FDFDFD", // White-ish
+        image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=1000&auto=format&fit=crop", // White minimalist
         description: "Returning to the mist with a new perspective.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 8,
-        title: "ONE PIECE",
-        subtitle: "Zero Record",
+        title: "雫記：ONE PIECE",
+        subtitle: "Shizuku Ki",
+        english: "Zero Record",
         year: "1999",
-        color: "#ff7f50", // Coral
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop",
+        color: "#FF5F36", // Coral
+        image: "https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?q=80&w=1000&auto=format&fit=crop", // Orange sunset/sky
         description: "The beginning of a grand adventure.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 9,
-        title: "HOMURA SHO",
-        subtitle: "Flame Book",
+        title: "焔書 (Homura Sho)",
+        subtitle: "Homura Sho",
+        english: "Flame Book",
         year: "2007",
-        color: "#f4a460", // Sandy Brown
-        image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1000&auto=format&fit=crop",
+        color: "#FFB587", // Sandy Brown
+        image: "https://images.unsplash.com/photo-1520962922320-2038eebab146?q=80&w=1000&auto=format&fit=crop", // Warm sand/desert
         description: "Burning bright with passion and creativity.",
         tags: ["Web Design", "Archive"],
     },
     {
+        id: 10,
+        title: "幻影の紋章 (Gen’ei no Monshō)",
+        subtitle: "Gen’ei no Monshō",
+        english: "Phantom Crest",
+        year: "2011",
+        color: "#EBF3FF", // Lavender
+        image: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=1000&auto=format&fit=crop", // Pale purple/blue sky
+        description: "A crest that fades into the digital ether.",
+        tags: ["Web Design", "Archive"],
+    },
+    {
         id: 11,
-        title: "YOSUMI",
-        subtitle: "Night Clarity",
+        title: "夜澄 (Yosumi)",
+        subtitle: "Yosumi",
+        english: "Night Clarity",
         year: "2015",
-        color: "#87ceeb", // Sky Blue
-        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1000&auto=format&fit=crop",
+        color: "#23C1E6", // Sky Blue
+        image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1000&auto=format&fit=crop", // Bright blue sea/sky
         description: "Clarity comes when the world sleeps.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 12,
-        title: "GUNAHON KA DEVTA",
-        subtitle: "God of Sins",
+        title: "गुनाहों का देवता",
+        subtitle: "Gunahon Ka Devta",
+        english: "God of Sins",
         year: "1995",
-        color: "#daa520", // Goldenrod
-        image: "https://images.unsplash.com/photo-1501854140884-074cf2b2c3af?q=80&w=1000&auto=format&fit=crop",
+        color: "#EAA605", // Goldenrod
+        image: "https://images.unsplash.com/photo-1477239439998-839196943351?q=80&w=1000&auto=format&fit=crop", // Yellow autumn/sunflower
         description: "Redemption through design.",
         tags: ["Web Design", "Archive"],
     },
     {
         id: 13,
-        title: "HARRY",
+        title: "해리 (Harry)",
         subtitle: "Harry",
+        english: "Harry",
         year: "2022",
-        color: "#bc8f8f", // Rosy Brown
-        image: "https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=1000&auto=format&fit=crop",
+        color: "#A07E74", // Rosy Brown
+        image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1000&auto=format&fit=crop", // Muted pink/brown texture
         description: "A modern classic.",
         tags: ["Web Design", "Archive"],
     },
