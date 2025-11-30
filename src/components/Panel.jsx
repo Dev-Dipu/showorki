@@ -117,10 +117,10 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
 
                 {/* Center Large Text */}
                 <div className="flex flex-col items-center justify-center opacity-80 h-1/3 border-y">
-                    <h1 className="font-playfair text-2xl leading-[0.9]">WEB</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">DESIGN</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">SINCE</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">1992</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">WEB</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">DESIGN</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">SINCE</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">1992</h1>
                 </div>
 
                 {/* Footer */}
