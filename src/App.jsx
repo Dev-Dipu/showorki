@@ -3,9 +3,11 @@ import Sidebar from "./components/Sidebar";
 
 const App = () => {
     return (
-        <div className="h-screen w-full overflow-x-auto overflow-y-hidden flex bg-[#191818] ">
+        <div className="h-screen w-full flex bg-[#191818] overflow-hidden">
             <Sidebar />
-            <Accordion />
+            <div className="flex-1 h-full overflow-x-auto overflow-y-hidden no-scrollbar">
+                <Accordion />
+            </div>
         </div>
     );
 };

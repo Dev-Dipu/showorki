@@ -16,14 +16,32 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 duration: 0.8,
                 ease: "power3.inOut",
                 minWidth: "60vw", // Large active panel
-                onComplete: () => {
-                    panelRef.current?.scrollIntoView({
-                        behavior: "smooth",
-                        inline: "center",
-                        block: "nearest",
-                    });
-                },
             });
+
+            // Smoothly scroll container to center the active panel while it expands
+            const container = panelRef.current.closest(".overflow-x-auto");
+            if (container) {
+                const containerWidth = container.offsetWidth;
+                const targetPanelWidth = window.innerWidth * 0.6; // 60vw
+                const rect = panelRef.current.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+
+                // Calculate current position relative to the scrollable content
+                const currentRelativeLeft =
+                    rect.left - containerRect.left + container.scrollLeft;
+
+                // Calculate target scroll position to center the panel
+                const targetScrollLeft =
+                    currentRelativeLeft -
+                    containerWidth / 2 +
+                    targetPanelWidth / 2;
+
+                gsap.to(container, {
+                    scrollLeft: targetScrollLeft,
+                    duration: 0.8,
+                    ease: "power3.inOut",
+                });
+            }
 
             gsap.to(contentRef.current, {
                 opacity: 1,
@@ -117,10 +135,18 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
 
                 {/* Center Large Text */}
                 <div className="flex flex-col items-center justify-center opacity-80 h-1/3 border-y">
-                    <h1 className="font-playfair text-2xl leading-[0.9]">WEB</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">DESIGN</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">SINCE</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">1992</h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        WEB
+                    </h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        DESIGN
+                    </h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        SINCE
+                    </h1>
+                    <h1 className="font-playfair text-2xl leading-[0.9]">
+                        1992
+                    </h1>
                 </div>
 
                 {/* Footer */}
@@ -182,7 +208,11 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                                 {data.year} / ARCHIVE
                             </span>
                             <h3 className="text-2xl font-light mt-2">
-                                {data.subtitle} <span className="opacity-50">/ {data.english}</span> ({data.title})
+                                {data.subtitle}{" "}
+                                <span className="opacity-50">
+                                    / {data.english}
+                                </span>{" "}
+                                ({data.title})
                             </h3>
                         </div>
                     </div>
