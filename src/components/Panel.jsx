@@ -32,7 +32,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 flexGrow: 0,
                 duration: 0.8,
                 ease: "power3.inOut",
-                minWidth: isAnyActive ? "60px" : "8vw",
+                minWidth: isAnyActive ? "60px" : "140px",
             });
 
             gsap.to(contentRef.current, {
@@ -54,7 +54,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
             ref={panelRef}
             onClick={!isActive ? onClick : undefined}
             style={{ backgroundColor: data.color }}
-            className={`panel relative flex flex-col h-full overflow-hidden cursor-pointer border-r border-black/10 min-w-[8vw]`}
+            className={`panel relative flex flex-col h-full overflow-hidden cursor-pointer border-r border-black/10 min-w-[140px]`}
         >
             {/* Collapsed Panel */}
             <div
@@ -63,23 +63,23 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
             >
                 {/* Header */}
                 <div className="flex gap-2 h-1/3">
-                    <span className="vertical-text leading-none text-[12px] tracking-[2px] font-semibold">
+                    <span className="vertical-text leading-none text-[12px] tracking-[2px] font-dmsans font-semibold ">
                         {data.title}
                     </span>
                     <img
                         src={data.image}
                         alt="thumb"
-                        className="w-10 h-10 object-cover rounded-sm"
+                        className="w-16 h-16 object-cover"
                     />
 
                 </div>
 
                 {/* Center Large Text */}
-                <div className="flex flex-col items-center justify-center opacity-80 h-1/3 border-y">
-                    <h1 className="font-playfair text-2xl leading-[0.9]">WEB</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">DESIGN</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">SINCE</h1>
-                    <h1 className="font-playfair text-2xl leading-[0.9]">1992</h1>
+                <div className="flex flex-col items-center justify-center opacity-80 h-fit py-10 border-y font-eight">
+                    <h1 className="font-eight text-2xl leading-[0.9]">WEB</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">DESIGN</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">SINCE</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">1992</h1>
                 </div>
 
                 {/* Footer */}
@@ -129,7 +129,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 <div className="flex-[1.5] flex flex-col justify-between">
                     {/* Header */}
                     <div>
-                        <h2 className="text-5xl font-playfair leading-[0.9] mb-5">
+                        <h2 className="text-5xl font-eight leading-[0.9] mb-5">
                             WEB <br />
                             DESIGN <br />
                             SINCE <br />
@@ -139,14 +139,14 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                         <div className="meta">
                             <span className="text-sm">{data.year} / ARCHIVE</span>
                             <h3 className="text-2xl font-light mt-2">
-                                {data.subtitle} ({data.title})
+                                {data.subtitle} <span className="opacity-50">/ {data.english}</span> ({data.title})
                             </h3>
                         </div>
                     </div>
 
                     {/* Body */}
                     <div className="my-10 flex gap-5">
-                        <p className="flex-1 text-[16px] leading-[1.6] font-mono">
+                        <p className="flex-1 text-[16px] leading-[1.6] font-dmsans">
                             <span className="float-left text-4xl leading-[1] mr-2">
                                 I
                             </span>
