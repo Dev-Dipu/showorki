@@ -32,7 +32,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 flexGrow: 0,
                 duration: 0.8,
                 ease: "power3.inOut",
-                minWidth: isAnyActive ? "60px" : "140px",
+                minWidth: isAnyActive ? "60px" : "8vw",
             });
 
             gsap.to(contentRef.current, {
@@ -54,7 +54,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
             ref={panelRef}
             onClick={!isActive ? onClick : undefined}
             style={{ backgroundColor: data.color }}
-            className={`panel relative flex flex-col h-full overflow-hidden cursor-pointer border-r border-black/10 min-w-[140px]`}
+            className={`panel relative flex flex-col h-full overflow-hidden cursor-pointer border-r border-black/10 min-w-[8vw]`}
         >
             {/* Collapsed Panel */}
             <div

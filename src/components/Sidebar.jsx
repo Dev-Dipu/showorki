@@ -14,7 +14,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 const Sidebar = () => {
     return (
             <div className="h-full p-6">
-                <div className="px-4 w-fit  h-full bg-[#191818] flex flex-col justify-between items-center py-5 border border-[#9F9F9F] z-[100] rounded-2xl">
+                <div className="px-4 w-20  h-full bg-[#191818] flex flex-col justify-between items-center py-5 border border-[#9F9F9F] z-[100] rounded-2xl">
 
             {/* Top */}
             <div className="flex flex-col items-center">
