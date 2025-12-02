@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { FaTimes } from "react-icons/fa";
+import ShaderReveal from "./ShaderReveal";
 
 const Panel = ({ data, isActive, onClick, isAnyActive }) => {
     const panelRef = useRef(null);
@@ -136,7 +137,9 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                 {/* Center Large Text */}
                 <div className="flex flex-col items-center justify-center opacity-80 h-1/3 border-y">
                     <h1 className="font-eight text-2xl leading-[0.9]">WEB</h1>
-                    <h1 className="font-eight text-2xl leading-[0.9]">DESIGN</h1>
+                    <h1 className="font-eight text-2xl leading-[0.9]">
+                        DESIGN
+                    </h1>
                     <h1 className="font-eight text-2xl leading-[0.9]">SINCE</h1>
                     <h1 className="font-eight text-2xl leading-[0.9]">1992</h1>
                 </div>
@@ -160,7 +163,7 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
             {/* Expanded Panel */}
             <div
                 ref={contentRef}
-                className="panel-expanded hidden opacity-0 absolute inset-0 flex bg-[#f5f5f5] text-black p-10 overflow-y-auto"
+                className="panel-expanded hidden opacity-0 absolute inset-0 flex flex-col bg-[#EBEBEB] text-black p-8 overflow-y-auto no-scrollbar"
             >
                 {/* Close Button */}
                 <button
@@ -168,74 +171,97 @@ const Panel = ({ data, isActive, onClick, isAnyActive }) => {
                         e.stopPropagation();
                         onClick();
                     }}
-                    className="absolute top-5 right-5 text-2xl cursor-pointer"
+                    className="absolute top-6 right-6 text-2xl cursor-pointer z-50 hover:rotate-90 transition-transform duration-300"
                 >
                     <FaTimes />
                 </button>
 
-                {/* Left Image */}
-                <div className="flex-1 flex items-center justify-center pr-10">
-                    <div className="w-full max-w-[400px] shadow-2xl">
+                {/* Top Section */}
+                <div className="flex w-full gap-10 h-[45%] min-h-[300px]">
+                    {/* Main Image */}
+                    <div className="w-[40%] h-full shadow-lg">
                         <img
                             src={data.image}
                             alt={data.title}
-                            className="w-full h-auto block"
+                            className="w-full h-full object-cover block"
                         />
+                    </div>
+
+                    {/* Header Info */}
+                    <div className="flex-1 flex flex-col justify-between py-2">
+                        <div>
+                            <h2 className="text-5xl font-eight italic leading-[0.9] text-[#1a1a1a]">
+                                WEB <br />
+                                DESIGN <br />
+                                SINCE <br />
+                                1992
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <span className="text-sm font-dmsans tracking-widest uppercase text-[#555]">
+                                {data.year} / ARCHIVE
+                            </span>
+                            <h1 className="text-4xl font-dmsans font-medium text-[#1a1a1a]">
+                                {data.title}
+                            </h1>
+                        </div>
                     </div>
                 </div>
 
-                {/* Right Content */}
-                <div className="flex-[1.5] flex flex-col justify-between">
-                    {/* Header */}
-                    <div>
-                        <h2 className="text-5xl font-eight leading-[0.9] mb-5">
-                            WEB <br />
-                            DESIGN <br />
-                            SINCE <br />
-                            1992
-                        </h2>
+                {/* Divider */}
+                <hr className="border-[#ccc] my-8 w-full" />
 
-                        <div className="meta">
-                            <span className="text-sm">
-                                {data.year} / ARCHIVE
-                            </span>
-                            <h3 className="text-2xl font-light mt-2">
-                                {data.subtitle}{" "}
-                                <span className="opacity-50">
-                                    / {data.english}
-                                </span>{" "}
-                                ({data.title})
-                            </h3>
-                        </div>
-                    </div>
-
-                    {/* Body */}
-                    <div className="my-10 flex gap-5">
-                        <p className="flex-1 text-[16px] leading-[1.6] font-dmsans">
-                            <span className="float-left text-4xl leading-[1] mr-2">
+                {/* Middle Section */}
+                <div className="flex w-full gap-10 mb-8">
+                    {/* Description */}
+                    <div className="w-1/2">
+                        <p className="text-[15px] leading-[1.8] font-mono text-[#333] text-justify">
+                            <span className="float-left text-5xl font-eight leading-[0.8] mr-3 mt-[-4px]">
                                 I
                             </span>
-                            {data.description}
-                            took this shot without thinking much...
+                            {data.description} took this shot without thinking
+                            much, but later it felt like the universe had paused
+                            for me. A single second captured between who I was
+                            and who I'm becoming. Maybe that's why I keep coming
+                            back to this frame — it feels like a quiet turning
+                            point.
                         </p>
-
-                        <div className="flex-1 flex justify-center items-center">
-                            <div className="flower-shape w-[100px] h-[100px] bg-[#333]"></div>
-                        </div>
                     </div>
 
-                    {/* Gallery */}
-                    <div className="flex gap-3 mt-auto">
+                    {/* Flower Graphic / Shader Reveal */}
+                    <div className="w-1/2 flex justify-center items-center relative h-[300px]">
+                        <div className="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none">
+                            {/* Background texture or shape if needed */}
+                        </div>
+                        <div className="w-[300px] h-[300px]">
+                            <ShaderReveal
+                                image={data.image}
+                                color={data.color}
+                                isActive={isActive}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Section: Gallery */}
+                <div className="mt-auto">
+                    <div className="grid grid-cols-5 gap-4 h-[180px]">
                         {[
-                            "https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=200",
-                            "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=200",
-                            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200",
-                            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=200",
+                            "https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=300",
+                            "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=300",
+                            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300",
+                            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=300",
+                            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=300",
                         ].map((img, i) => (
-                            <div key={i}>
+                            <div
+                                key={i}
+                                className="h-full w-full overflow-hidden bg-gray-200"
+                            >
                                 <img
                                     src={img}
-                                    className="w-[80px] h-[100px] object-cover"
+                                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                                    alt="gallery"
                                 />
                             </div>
                         ))}
